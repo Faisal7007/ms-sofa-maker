@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ReduxProvider1 } from "./redux_services/providers";
 export const metadata = {
   title: "MS Sofa Maker",
   description: "MS Sofa Maker And Modern Furniture",
@@ -9,7 +10,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="favicon1.ico" />
       </head>
-      <body className={``}>{children}</body>
+      <body className={``}>
+        <ReduxProvider1>{children}</ReduxProvider1>
+      </body>
     </html>
   );
 }
