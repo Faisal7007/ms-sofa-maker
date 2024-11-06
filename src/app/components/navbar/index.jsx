@@ -15,12 +15,12 @@ function Navbar() {
     _bg_color: "bg-transparent",
     _logo1: "flex",
     _logo2: "hidden",
-    _text_color: "text-color_dark_red",
+    _text_color: "text-color_dark_red1",
   });
   function changeNavColor() {
     if (window.scrollY > 40) {
       setNavColor({
-        _bg_color: "bg-color_dark_red",
+        _bg_color: "bg-color_dark_red1",
         _logo1: "hidden",
         _logo2: "flex",
         _text_color: "text-white",
@@ -30,7 +30,7 @@ function Navbar() {
         _bg_color: "bg-transparent",
         _logo1: "flex",
         _logo2: "hidden",
-        _text_color: "text-color_dark_red",
+        _text_color: "text-color_dark_red1",
       });
     }
   }
@@ -43,94 +43,34 @@ function Navbar() {
       className={`w-full flex items-center justify-center ${navColor._bg_color} fixed top-0 left-0 z-[80]`}
     >
       <div className=" max-w-1600px w-full flex items-center justify-center">
-        <div className=" w-88% flex items-center justify-between flex-wrap h-[71px] py-[2px]">
+        <div className=" w-88% flex items-center justify-between flex-wrap py-[2px]">
           <Link
             href="/"
-            className={`w-16% ${navColor._logo1} items-center justify-center h-full`}
+            className={`w-8% ${navColor._logo1} items-center justify-center`}
           >
             <Image
-              src="/logo1.png" // my selection without bg
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full h-full"
-              priority={true}
-            />
-          </Link>
-          <Link
-            href="/"
-            className={`w-16% ${navColor._logo2} items-center justify-center h-full`}
-          >
-            <Image
-              src="/logo3.png" // my selection with bg
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full h-full bg-color_dark_red"
-              priority={true}
-            />
-          </Link>
-          {/* <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo2.png"
+              src="logo1.png"
               width={25}
               height={25}
               alt="logo1"
               className=" w-full"
+              priority={true}
+            />
+          </Link>
+          <Link
+            href="/"
+            className={`w-8% ${navColor._logo2} items-center justify-center`}
+          >
+            <Image
+              src="logo2.png"
+              width={25}
+              height={25}
+              alt="logo1"
+              className=" w-full "
               priority={true}
             />
           </Link>
 
-          <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo4.png"
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full bg-black"
-              priority={true}
-            />
-          </Link>
-          <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo5.png"
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full"
-              priority={true}
-            />
-          </Link>
-          <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo6.png"
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full"
-              priority={true}
-            />
-          </Link>
-          <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo3.png"
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full bg-black"
-              priority={true}
-            />
-          </Link>
-          <Link href="/" className=" w-16% flex items-center justify-center">
-            <Image
-              src="/logo4.png"
-              width={25}
-              height={25}
-              alt="logo1"
-              className=" w-full bg-color_dark_red"
-              priority={true}
-            />
-          </Link> */}
           <div
             className={`flex items-center justify-center gap-4 text-p1 font-500 ${navColor._text_color}`}
           >

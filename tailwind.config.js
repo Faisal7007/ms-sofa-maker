@@ -54,6 +54,8 @@ module.exports = {
         "24%": "24%",
         "19%": "19%",
         "16%": "16%",
+        "12%": "12%",
+        "8%": "8%",
       },
       height: {
         "160px": "160px",
@@ -91,7 +93,11 @@ module.exports = {
       colors: {
         // background: "var(--background)",
         // foreground: "var(--foreground)",
-        color_dark_red: "#be2a3a",
+        color_dark_red1: "#be2a3a",
+        color_light_red1: "#d25c66",
+        color_light_red2: "#e1848c",
+        color_light_red3: "#f0acb2",
+        color_light_red4: "#facad0",
       },
     },
   },
