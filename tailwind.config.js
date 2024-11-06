@@ -98,6 +98,7 @@ module.exports = {
         color_light_red2: "#e1848c",
         color_light_red3: "#f0acb2",
         color_light_red4: "#facad0",
+        color_light_white1: "#ffffffbf",
       },
     },
   },
