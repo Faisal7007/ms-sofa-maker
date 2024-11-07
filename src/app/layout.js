@@ -1,3 +1,4 @@
+import Navbar from "./components/navbar";
 import "./globals.css";
 import { ReduxProvider1 } from "./redux_services/providers";
 export const metadata = {
@@ -11,7 +12,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="favicon1.ico" />
       </head>
       <body className={``}>
-        <ReduxProvider1>{children}</ReduxProvider1>
+        <ReduxProvider1>
+          <Navbar />
+          {children}
+        </ReduxProvider1>
       </body>
     </html>
   );

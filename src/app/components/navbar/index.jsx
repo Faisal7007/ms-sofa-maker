@@ -76,13 +76,17 @@ function Navbar() {
           >
             {navOpt?.map((opt, ind) => {
               return (
-                <Link href="/" key={ind} className=" hover:underline">
+                <Link
+                  href={`/${opt === "Home" ? "" : opt.toLowerCase()}`}
+                  key={ind}
+                  className=" hover:underline"
+                >
                   {opt}
                 </Link>
               );
             })}
             <Link
-              href="/"
+              href="/admin"
               className=" text-h4 hover:scale-90 transition-transform duration-200 ease-in-out"
             >
               <MdAdminPanelSettings />
