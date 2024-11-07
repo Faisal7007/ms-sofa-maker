@@ -24,7 +24,7 @@ function Header() {
               statement of elegance with furniture that stands the test of time.
             </p>
             <Link
-              href="/"
+              href="/contact"
               className=" bg-color_dark_red1 text-white text-p1 font-500 leading-none px-12 py-4 hover:scale-90 transition-transform duration-200 ease-in-out rounded-8px mt-3"
             >
               Contact
