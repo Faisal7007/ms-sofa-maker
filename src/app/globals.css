@@ -40,3 +40,7 @@ h5,
 h6 {
   font-family: Bricolage Grotesque;
 }
+
+.jost_regular {
+  font-family: var(--font-jost);
+}

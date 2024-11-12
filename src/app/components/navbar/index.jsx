@@ -4,13 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { MdAdminPanelSettings } from "react-icons/md";
 function Navbar() {
-  const [navOpt] = useState([
-    "Home",
-    "Services",
-    "Products",
-    "About",
-    "Contact",
-  ]);
+ const navOpt =[
+  { name: "Home", link: "/" },
+  { name: "Services", link: "/services" },
+  { name: "Products", link: "/products" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" }
+]
   const [navColor, setNavColor] = useState({
     _bg_color: "bg-transparent",
     _logo1: "flex",
@@ -76,13 +76,13 @@ function Navbar() {
           >
             {navOpt?.map((opt, ind) => {
               return (
-                <Link href="/" key={ind} className=" hover:underline">
-                  {opt}
+                <Link href={`${opt.link}`} key={ind} className=" hover:underline">
+                  {opt.name}
                 </Link>
               );
             })}
             <Link
-              href="/"
+              href="/admin"
               className=" text-h4 hover:scale-90 transition-transform duration-200 ease-in-out"
             >
               <MdAdminPanelSettings />
