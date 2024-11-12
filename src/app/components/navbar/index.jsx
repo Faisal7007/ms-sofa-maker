@@ -83,6 +83,7 @@ function Navbar() {
             })}
             <Link
               href="/admin"
+              href="/admin"
               className=" text-h4 hover:scale-90 transition-transform duration-200 ease-in-out"
             >
               <MdAdminPanelSettings />

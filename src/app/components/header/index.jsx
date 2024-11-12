@@ -1,18 +1,19 @@
-
 "use client";
 import React from "react";
 import "./style.css";
 import Link from "next/link";
 import { useFirebase } from "@/app/context/Firebase";
 function Header() {
-  const firebase=useFirebase()
+  const firebase = useFirebase();
 
-  const handleAdd=()=>{
-    firebase.putData('newuser/user',{
-      fName:'Faisal',
-      age:24
-    }).then(()=>alert('Data Added Successfully'))
-  }
+  const handleAdd = () => {
+    firebase
+      .putData("newuser/user", {
+        fName: "Faisal",
+        age: 24,
+      })
+      .then(() => alert("Data Added Successfully"));
+  };
   return (
     <header className=" w-full flex items-center justify-center">
       <div className=" max-w-1600px w-full flex items-center justify-center">
@@ -36,6 +37,7 @@ function Header() {
             </p>
             <div
               onClick={handleAdd}
+              href="/contact"
               className=" bg-color_dark_red1 text-white text-p1 font-500 leading-none px-12 py-4 hover:scale-90 transition-transform duration-200 ease-in-out rounded-8px mt-3"
             >
               Contact
