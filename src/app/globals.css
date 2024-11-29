@@ -4,23 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+
 
 * {
   margin: 0;
@@ -31,6 +17,10 @@ body {
 body {
   scroll-behavior: smooth;
   font-family: Public Sans;
+}
+
+.allison_regular {
+  font-family: var(--font-allison) !important;
 }
 h1,
 h2,
@@ -44,3 +34,92 @@ h6 {
 .jost_regular {
   font-family: var(--font-jost);
 }
+
+
+.vertical-scrollbar{
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.vertical-scrollbar::-webkit-scrollbar{
+  display: none;
+}
+
+
+.vertical-scrollbar-two{
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.vertical-scrollbar-two::-webkit-scrollbar{
+  display: none;
+}
+
+
+.horizontal-scrollbar{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar{
+  display: none;
+
+}
+
+
+.fileInput {
+  display: none;
+}
+
+/* Style the custom button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+.prime-container img {
+  @apply m-0 p-0; 
+  height: 100px;
+  width: 100px;
+
+}
+
+.prime-container .p-orderlist {
+  @apply bg-white;
+}
+
+
+/* Target the scrollbar track (background) */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the width for vertical scrollbars */
+  height: 12px; /* Adjust the height for horizontal scrollbars */
+}
+
+/* The scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #be2a3a; /* Change to your desired color */
+  border-radius: 6px; /* Rounded corners */
+  border: 3px solid #ffffff; /* Add some space around the thumb */
+}
+
+/* The background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #fff; /* Change to your desired background color */
+  border-radius: 6px; /* Optional: round the corners */
+}
+
+
+
+

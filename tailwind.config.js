@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true, 
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -89,6 +90,8 @@ module.exports = {
       },
       screens: {
         "media-max-930px": { max: "930px" },
+        "media-max-450px": { max: "450px" },
+
       },
       colors: {
         // background: "var(--background)",
@@ -99,6 +102,7 @@ module.exports = {
         color_light_red3: "#f0acb2",
         color_light_red4: "#facad0",
         color_light_white1: "#ffffffbf",
+        navy_blue:"#0a1d37"
       },
     },
   },
