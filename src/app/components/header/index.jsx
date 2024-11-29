@@ -3,7 +3,7 @@ import React from "react";
 import "./style.css";
 import Link from "next/link";
 import { useFirebase } from "@/app/context/Firebase";
-import { Button } from 'primereact/button';
+
 
 function Header() {
   const firebase = useFirebase();

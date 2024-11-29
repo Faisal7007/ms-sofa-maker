@@ -4,18 +4,14 @@ import { FirebaseProvider } from "./context/Firebase";
 import "./globals.css";
 import { ReduxProvider1 } from "./redux_services/providers";
 import { Inter, Allison, Poppins, Jost } from "next/font/google";
-/* PrimeReact core styles */
-import 'primereact/resources/primereact.min.css';
 
-/* PrimeReact theme (choose one) */
-import 'primereact/resources/themes/lara-light-blue/theme.css';
 
-/* PrimeIcons (for icons used in components) */
-import 'primeicons/primeicons.css';
+
+
 
 // _app.js
 
-import { PrimeReactProvider } from "primereact/api";
+
 import WhatsAppConditionalRender from "./components/whatsup-condition/WhatsAppConditionalRender";
 
 
