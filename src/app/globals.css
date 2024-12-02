@@ -84,6 +84,8 @@ h6 {
   transition: background-color 0.3s ease;
 }
 
+
+
 /* Hover effect for the button */
 .custom-file-upload:hover {
   background-color: #45a049;
@@ -120,6 +122,17 @@ h6 {
   border-radius: 6px; /* Optional: round the corners */
 }
 
-
-
+@media (max-width: 450px) {
+  .custom-file-upload {
+    display: inline-block;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+}
 

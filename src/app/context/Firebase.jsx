@@ -211,7 +211,7 @@ export const FirebaseProvider = ({ children }) => {
       await signInWithEmailAndPassword(auth, email, password);
       successLogin();
     } catch (error) {
-      loginFail();
+      // loginFail();
     }
   };
 
@@ -236,7 +236,8 @@ export const FirebaseProvider = ({ children }) => {
     signOut(auth);
   };
 
-  const isLoggedIn = !!userData;
+ 
+  const isLoggedIn = !userData;
 
   return (
     <FirebaseContext.Provider

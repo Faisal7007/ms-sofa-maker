@@ -1,7 +1,8 @@
 "use client";
 import { useFirebase } from "@/app/context/Firebase";
+import UserContext from "@/app/contextApi/UserContext";
 import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,8 +31,6 @@ function EditProduct() {
   const router = useRouter();
   const firebase = useFirebase();
   const updateToast=()=>toast("Updated Successfully")
-
-
 
 
   useEffect(() => {
@@ -102,16 +101,14 @@ function EditProduct() {
   
     try {
       const featureArray = features.split(",").map((feature) => feature.trim());
-  
       // Use existing previews as fallback URLs
       const existingImageUrls = [imagePreviewOne, imagePreviewTwo, imagePreviewThree];
-  
       // Determine new or existing image sources
       const imageOne = imageFileOne || imagePreviewOne;
       const imageTwo = imageFileTwo || imagePreviewTwo;
       const imageThree = imageFileThree || imagePreviewThree;
   
-      console.log(existingImageUrls, "existingImageUrls in edit page");
+      // console.log(existingImageUrls, "existingImageUrls in edit page");
   
       // Call the update function
       await firebase.updateProductById(
@@ -142,15 +139,25 @@ function EditProduct() {
     }
   };
   
+
+
+  const {setIdx} = useContext(UserContext)
+  useEffect(()=>{
+
+    setIdx(id)
+  },[])
+ 
+  
   
 
   return (
-    <div className=" vertical-scrollbar max-w-3xl mx-auto p-4 bg-gray-100 border rounded-lg shadow-md">
+    <div className="vertical-scrollbar max-w-4xl mx-auto p-4 bg-gray-100 border rounded-lg shadow-md media-max-450px:p-2">
     <ToastContainer/>
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">Edit Product</h2>
+      <h2 className="text-2xl text-center font-bold mb-4 text-gray-800">Edit Product</h2>
       {productData ? (
         <div >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className=" media-max-450px:col-span-2">
           <input
             type="text"
             placeholder="Product Name"
@@ -158,7 +165,8 @@ function EditProduct() {
             onChange={(e) => setName(e.target.value)}
             className="w-full p-2  border rounded"
           />
-         
+        </div>
+        <div className=" media-max-450px:col-span-2">
           <input
             type="text"
             placeholder="Color"
@@ -166,6 +174,7 @@ function EditProduct() {
             onChange={(e) => setColor(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
            <div className="col-span-2">
 
@@ -174,12 +183,15 @@ function EditProduct() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-2 border rounded"
+            rows="4"
+            style={{ maxHeight: "100px", minHeight:'100px' }}
+
           ></textarea>
           {errors.description && (
             <p className="text-red-500 text-sm">{errors.description}</p>
           )}
           </div>
-
+        <div className=" media-max-450px:col-span-2">
           <input
             type="text"
             placeholder="Material"
@@ -187,6 +199,9 @@ function EditProduct() {
             onChange={(e) => setMaterial(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
+        <div className="media-max-450px:col-span-2">
+
           <input
             type="text"
             placeholder="Width"
@@ -194,6 +209,9 @@ function EditProduct() {
             onChange={(e) => setWidth(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
+        <div className="media-max-450px:col-span-2">
+
           <input
             type="text"
             placeholder="Depth"
@@ -201,6 +219,9 @@ function EditProduct() {
             onChange={(e) => setDepth(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
+        <div className="media-max-450px:col-span-2">
+
           <input
             type="text"
             placeholder="Height"
@@ -208,6 +229,8 @@ function EditProduct() {
             onChange={(e) => setHeight(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
+        <div className="media-max-450px:col-span-2">
           <input
             type="text"
             placeholder="Seating Capacity"
@@ -215,20 +238,25 @@ function EditProduct() {
             onChange={(e) => setSeatingCapacity(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
+        <div className="media-max-450px:col-span-2">
+
           <input
             type="text"
             placeholder="Features (comma-separated)"
             value={features}
+             
             onChange={(e) => setFeatures(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          </div>
         </div>
 
           {/* Image Uploads */}
-          <div className="flex justify-between  horizontal-scrollbar mt-4">
+          <div className="flex justify-between  horizontal-scrollbar mt-4 media-max-450px:gap-2 ">
 
         
-            {/* <p className="text-center">First</p>*/}
+           
             {imagePreviewOne && (
               <div className="w-54 h-48 overflow-hidden">
               <img
@@ -238,10 +266,8 @@ function EditProduct() {
               />
               </div>
             )}
-            {/* <input type="file" accept="image/*" onChange={handleImageChangeOne} /> */}
-         
           
-            {/* <p  className="text-center">Second</p> */}
+          
             {imagePreviewTwo && (
               <div className="w-54 h-48 overflow-hidden">
               
@@ -255,7 +281,7 @@ function EditProduct() {
             {/* <input type="file" accept="image/*" onChange={handleImageChangeTwo} /> */}
           
          
-            {/* <p  className="text-center">Third</p> */}
+            
             {imagePreviewThree && (
               <div className="w-54 h-48 overflow-hidden">
 
@@ -277,7 +303,7 @@ function EditProduct() {
   
   {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
 
-<div className="text-[12px] text-gray-600">First Image</div>
+<div className="text-[12px] text-gray-600 media-max-450px:text-[10px]">First Image</div>
 
 <input type="file" id="fileInputOne" className="fileInput"  accept="image/*"
     onChange={handleImageChangeOne} />
@@ -291,7 +317,7 @@ Upload
 
   {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
 
-<div className="text-[12px] text-gray-600" >Second Image</div>
+<div className="text-[12px] text-gray-600 media-max-450px:text-[10px]" >Second Image</div>
 
 <input type="file" id="fileInputTwo" className="fileInput"  accept="image/*"
     onChange={handleImageChangeTwo} />
@@ -302,9 +328,8 @@ Upload
 </div>
 
 <div className="col-span-2">
-  
   {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
-<div className="text-[12px] text-gray-600">Third Image</div>
+<div className="text-[12px] text-gray-600 media-max-450px:text-[10px]">Third Image</div>
 <input type="file" id="fileInputThree" className="fileInput"   accept="image/*"
     onChange={handleImageChangeThree} />
 
@@ -322,14 +347,14 @@ Upload
 
       <button
         onClick={handleUpdateProduct}
-        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-900 transition-colors"
+        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-900 transition-colors media-max-450px:py-1 media-max-450px:px-2 media-max-450px:text-[14px]"
       >
         Update Product
       </button>
 
       <button
         onClick={()=>{router.back()}}
-        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-900 transition-colors"
+        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-900 transition-colors media-max-450px:py-1 media-max-450px:px-2 media-max-450px:text-[14px]"
       >
         Go Back
       </button>

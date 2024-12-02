@@ -103,26 +103,10 @@ export default function ProductListCard({ products, setProducts }) {
             {filteredProducts.map((product) => (
               <li
                 key={product.id}
-                className="flex justify-between items-center p-4 bg-gray-100 hover:bg-gray-200 rounded border-b border-gray-500"
+                className="flex justify-between  items-center p-4 bg-gray-100 hover:bg-gray-200 rounded border-b border-gray-500 media-max-450px:justify-end media-max-450px:p-0"
               >
                 {editId === product.id ? (
                   <div className="flex flex-col w-full">
-                    
-{/*                    
-                    <div className="flex justify-end gap-2">
-                      <button
-                        onClick={() => handleSave(product.id)}
-                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                      >
-                        Save
-                      </button>
-                      <button
-                        onClick={() => setEditId(null)}
-                        className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-                      >
-                        Cancel
-                      </button>
-                    </div> */}
                   </div>
                 ) : (
                   <div className="flex justify-between items-center w-full">
@@ -134,37 +118,25 @@ export default function ProductListCard({ products, setProducts }) {
                         alt={product.proName}
                       />
                       <div>
-                        <p className="font-medium">{product.proName}</p>
-                        <p className="text-sm text-gray-500">{product.details.color}</p>
+                        <p className="font-medium media-max-450px:text-[14px]">{product.proName.slice(0,18)}..</p>
+                        <p className="text-sm text-gray-500 media-max-450px:text-[12px]">{product.details.color}</p>
                       </div>
                     </div>
-                    <div className="flex gap-8">
+                    <div className="flex gap-8 media-max-450px:gap-4 items-start ">
                     <Tooltip id="edit" place="top" style={{
           backgroundColor: 'blue',
           color: 'white',
           borderRadius: '5px',
           padding: '4px',
         }} />
-                    <FaRegEdit data-tooltip-id="edit" data-tooltip-content="Edit" className=" size-6 text-blue-700 cursor-pointer"  onClick={() =>handleEdit(product)}/>
-                      {/* <button
-                        onClick={() =>handleEdit(product)}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                      >
-                        Edit
-                      </button> */}
+                    <FaRegEdit data-tooltip-id="edit" data-tooltip-content="Edit" className=" size-6 text-blue-700 cursor-pointer media-max-450px:size-5"  onClick={() =>handleEdit(product)}/>
                       <Tooltip id="delete" place="top" style={{
           backgroundColor: 'red',
           color: 'white',
           borderRadius: '5px',
           padding: '4px',
         }} />
-                      <FaRegTrashCan data-tooltip-id="delete" data-tooltip-content="Delete" className=" size-6 text-red-600 cursor-pointer" onClick={() => handleDelete(product.id)}/>
-                      {/* <button
-                        onClick={() => handleDelete(product.id)}
-                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                      >
-                        Delete
-                      </button> */}
+                      <FaRegTrashCan data-tooltip-id="delete" data-tooltip-content="Delete" className=" size-6 text-red-600 cursor-pointer media-max-450px:size-5" onClick={() => handleDelete(product.id)}/>
                     </div>
                   </div>
                 )}
@@ -179,7 +151,6 @@ export default function ProductListCard({ products, setProducts }) {
         isOpen={isModalOpen}
         onClose={closeModal}
         onConfirm={confirmDelete}
-        
       />
     </div>
   );

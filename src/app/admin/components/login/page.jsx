@@ -5,14 +5,18 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import { FirebaseProvider, useFirebase } from '@/app/context/Firebase';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import Image from 'next/image';
 import { RiArrowGoBackFill } from "react-icons/ri";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   // redparts2001@gmail.com
   // Sufiy@n2001@
 
+  
+const loginFail = () => toast("Wrong email or password");
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -33,29 +37,25 @@ const Login = () => {
     // Add form submission logic here (e.g., validation or API call)
     // console.log(firebase);
     
-    await firebase.LoginUser(formData.email,formData.password)
+      await firebase.LoginUser(formData.email,formData.password)
     
-     setFormData({
-        email: "",
-        password: "",
-    })
-  
-
+      setFormData({
+         email: "",
+         password: "",
+     })
   };
   return (
   
     <div className="min-h-screen flex items-center justify-center bg-[url('/images/admin-login-bg.jpg')] bg-cover bg-center bg-gray-100 p-6">
   <div className="bg-[#dc8c88] relative shadow-md rounded-lg w-full max-w-md">
   <ToastContainer/>
-
-  
     <div className=" h-56   rounded-tr-lg rounded-tl-lg   overflow-hidden  ">
       <Image    width={250}
               height={250} className="w-full h-full object-cover" src={"/images/admin-login-bg.jpg"} alt="Bg-image" />
     </div>
     {/* <ToastContainer /> */}
     <div className='p-8  '>
-    <RiArrowGoBackFill onClick={()=>{router.back()}} className='absolute top-10 size-5 cursor-pointer '/>
+    <RiArrowGoBackFill onClick={()=>{router.push("/home")}} className='absolute top-10 size-5 cursor-pointer '/>
     <h2 className="text-2xl font-bold font josh_regular text-center mb-6"> Admin Log In</h2>
     <form onSubmit={handleLogin}>
       <div className="mb-4">

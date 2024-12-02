@@ -50,7 +50,7 @@ const AdminLayout = ({ children }) => {
         <main className="flex-1 bg-gray-100 p-6 lg:w-4/5">
           {/* Toggle Button */}
           <button
-            className="lg:hidden fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded"
+            className="  lg:hidden fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded"
             onClick={toggleSidebar}
           >
             {isSidebarOpen ? <span className="size-10"><RxCross2 className="size-5"/></span> : <GiHamburgerMenu/>}

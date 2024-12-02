@@ -13,6 +13,7 @@ import { Inter, Allison, Poppins, Jost } from "next/font/google";
 
 
 import WhatsAppConditionalRender from "./components/whatsup-condition/WhatsAppConditionalRender";
+import UserContextProvider from "./contextApi/UserContextProvider";
 
 
 
@@ -42,12 +43,16 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="favicon1.ico" />
       </head>
       <body className={`${jost_init.variable} ${allison_init.variable} bg-gray-50`}>
+      <UserContextProvider>
+
           <FirebaseProvider>
             <ReduxProvider1>
               {children}
               <WhatsAppConditionalRender/>
             </ReduxProvider1>
           </FirebaseProvider>
+      </UserContextProvider>
+
       </body>
     </html>
   );

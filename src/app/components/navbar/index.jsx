@@ -42,6 +42,7 @@ function Navbar() {
         _logo1: "hidden",
         _logo2: "flex",
         _text_color: "text-white",
+        // _blur_effect: "backdrop-blur-lg"
       });
       setMenuColor('white')
       setmenuBgColor('color_dark_red1')
@@ -54,7 +55,6 @@ function Navbar() {
       });
       setMenuColor('color_dark_red1')
       setmenuBgColor('white')
-
 
     }
   }
@@ -73,7 +73,7 @@ function Navbar() {
             className={`w-[8%] ${navColor._logo1} items-center justify-center`}
           >
             <Image
-              src="/logo1.png"
+              src="/logo/logo1.png"
               width={25}
               height={25}
               alt="/logo1"
@@ -86,7 +86,7 @@ function Navbar() {
             className={`w-8% ${navColor._logo2} items-center justify-center`}
           >
             <Image
-              src="/logo2.png"
+              src="/logo/logo2.png"
               width={25}
               height={25}
               alt="logo1"

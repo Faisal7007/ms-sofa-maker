@@ -117,13 +117,13 @@ const failureAdd = () => toast("Failed to add product");
   };
 
   return (
-    <div className=" vertical-scrollbar max-w-3xl mx-auto p-4 bg-gray-100 border rounded-lg shadow-md">
+    <div className=" vertical-scrollbar max-w-4xl mx-auto p-4 bg-gray-100 border rounded-lg shadow-md">
     <ToastContainer/>
-      <h2 className="text-2xl text-gray-800 font-bold mb-4">Add New Product</h2>
+      <h2 className="text-2xl text-gray-800 font-bold mb-4 ">Add New Product</h2>
 
       {/* Grid layout for input fields */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 media-max-450px:grid-cols-1 ">
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Product Name"
@@ -134,7 +134,7 @@ const failureAdd = () => toast("Failed to add product");
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Color"
@@ -151,11 +151,13 @@ const failureAdd = () => toast("Failed to add product");
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-2 border rounded"
+             rows="4"
+             style={{ maxHeight: "100px", minHeight:'100px' }}
           />
           {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Material"
@@ -166,7 +168,7 @@ const failureAdd = () => toast("Failed to add product");
           {errors.material && <p className="text-red-500 text-sm">{errors.material}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Seating Capacity"
@@ -177,7 +179,7 @@ const failureAdd = () => toast("Failed to add product");
           {errors.seatingCapacity && <p className="text-red-500 text-sm">{errors.seatingCapacity}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Width"
@@ -188,7 +190,7 @@ const failureAdd = () => toast("Failed to add product");
           {errors.width && <p className="text-red-500 text-sm">{errors.width}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Depth"
@@ -199,7 +201,7 @@ const failureAdd = () => toast("Failed to add product");
           {errors.depth && <p className="text-red-500 text-sm">{errors.depth}</p>}
         </div>
         
-        <div>
+        <div className="media-max-450px:col-span-2 ">
           <input
             type="text"
             placeholder="Height"
@@ -227,7 +229,7 @@ const failureAdd = () => toast("Failed to add product");
           
           {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
 
-  <div className="text-[12px] text-gray-600">First Image</div>
+  <div className="text-[12px] text-gray-600 media-max-450px:text-[10px]">First Image</div>
         
   <input type="file" id="fileInputOne" className="fileInput"  accept="image/*"
             onChange={handleImageChangeOne} />
@@ -241,7 +243,7 @@ const failureAdd = () => toast("Failed to add product");
           
           {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
 
-  <div className="text-[12px] text-gray-600" >Second Image</div>
+  <div className="text-[12px] text-gray-600 media-max-450px:text-[10px] media-max-450px:w-[68px]" >Second Image</div>
         
   <input type="file" id="fileInputTwo" className="fileInput"  accept="image/*"
             onChange={handleImageChangeTwo} />
@@ -254,7 +256,7 @@ const failureAdd = () => toast("Failed to add product");
   <div className="col-span-2">
           
           {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
-  <div className="text-[12px] text-gray-600">Third Image</div>
+  <div className="text-[12px] text-gray-600 media-max-450px:text-[10px]">Third Image</div>
   <input type="file" id="fileInputThree" className="fileInput"   accept="image/*"
             onChange={handleImageChangeThree} />
 
@@ -308,7 +310,7 @@ const failureAdd = () => toast("Failed to add product");
 
       <button
         onClick={handleAddProduct}
-        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-800 transition-colors"
+        className=" bg-gray-800 text-white py-2 px-4 rounded mt-4 hover:bg-gray-800 transition-colors media-max-450px:py-1 media-max-450px:px-2 media-max-450px:text-[14px]"
         disabled={Object.keys(errors).length > 0}
       >
         Add Product

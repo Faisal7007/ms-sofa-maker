@@ -3,13 +3,16 @@ import React from "react";
 import "./style.css";
 import Link from "next/link";
 import { useFirebase } from "@/app/context/Firebase";
+import { useRouter } from "next/navigation";
 
 
 function Header() {
-  const firebase = useFirebase();
+  // const firebase = useFirebase();
+  const router=useRouter()
 
-  const handleAdd = () => {
-    // Add your logic here
+  const handleContact = () => {
+    router.push("/contact")
+    
   };
 
   return (
@@ -17,13 +20,13 @@ function Header() {
       <div className="max-w-[1600px] w-full flex items-center justify-center px-4 md:px-8">
         <div className="w-full lg:w-11/12 xl:w-10/12 flex items-center justify-center py-16 min-h-[60vh] lg:min-h-screen z-10">
           <div className="w-full flex flex-col items-center justify-center gap-4 bg-color_light_white1 rounded-lg py-6 px-4 md:px-8">
-            <h1 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-bold text-center leading-tight text-color_dark_red1 mb-4">
+            <div className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-bold font josh_regular text-center leading-tight text-color_dark_red1 mb-4">
               MS SOFA MAKER & MODERN FURNITURE
-            </h1>
-            <h4 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-center leading-tight text-color_dark_red1 underline mb-4">
+            </div>
+            <div className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold font josh_regular text-center leading-tight text-color_dark_red1 underline mb-4">
               Crafting Comfort, Elevating Style
-            </h4>
-            <p className="text-[14px] sm:text-[16px] md:text-[18px] text-justify text-color_dark_red1 mt-3 leading-relaxed">
+            </div>
+            <p className="text-[14px] sm:text-[16px] md:text-[18px] text-justify text-color_dark_red1 mt-3 leading-relaxed font josh_regular">
               At MS SOFA MAKER & MODERN FURNITURE, we take pride in crafting
               exquisite furniture that seamlessly blends style, comfort, and
               functionality. From bespoke sofas to contemporary furniture
@@ -34,7 +37,7 @@ function Header() {
               statement of elegance with furniture that stands the test of time.
             </p>
             <div
-              onClick={handleAdd}
+              onClick={handleContact}
               className="bg-color_dark_red1 cursor-pointer text-white text-[14px] sm:text-[16px] md:text-[18px] font-medium px-8 sm:px-12 py-3 sm:py-4 hover:scale-95 transition-transform duration-200 ease-in-out rounded-md mt-4"
             >
               Contact

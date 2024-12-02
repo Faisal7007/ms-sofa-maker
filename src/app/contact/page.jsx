@@ -1,9 +1,57 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import Image from "next/image";
 import Footer from "../components/footer";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+// serviceID-service_s955usf
 function Contact() {
+  const successSend = () => toast("Message Send Successfully");
+
+
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const serviceId = "service_ktk4u1i";
+    const templateId = "template_ajdu8zf";
+    const publicKey = "KKlmL7C9A_GL1kHL_";
+
+   
+    emailjs.send(serviceId, templateId, formValues, publicKey)
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response.status, response.text);
+          // alert("Message sent successfully!");
+          successSend()
+          
+          setFormValues({
+            name: "",
+            email: "",
+            mobile: "",
+            description: "",
+          });
+        },
+        (error) => {
+          // console.error("Failed to send email.", error);
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
   return (
     <div>
       <Navbar />
@@ -18,6 +66,8 @@ function Contact() {
         <div className="text-gray-800 font-semibold text-4xl sm:text-5xl lg:text-[65px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
           Contact Us
         </div>
+      <ToastContainer/>
+
       </div>
       <div className="  pb-10 bg-gray-50 flex flex-col lg:flex-row justify-between items-start px-6 sm:px-12 lg:px-20 mt-10 gap-10">
         {/* Address Section */}
@@ -54,13 +104,15 @@ function Contact() {
             Message us here and we’ll get back to you soon!
           </div>
           <div className="mt-4">
-            <form>
+            <form onSubmit={handleSubmit}>
               {/* Name Input */}
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 font-medium">
                   Enter Name
                 </label>
                 <input
+                  value={formValues.name}
+                  onChange={handleChange}
                   type="text"
                   id="name"
                   name="name"
@@ -75,6 +127,8 @@ function Contact() {
                   Enter Email
                 </label>
                 <input
+                  value={formValues.email}
+                  onChange={handleChange}
                   type="email"
                   id="email"
                   name="email"
@@ -89,6 +143,8 @@ function Contact() {
                   Enter Mobile Number
                 </label>
                 <input
+                  value={formValues.mobile}
+                  onChange={handleChange}
                   type="tel"
                   id="mobile"
                   name="mobile"
@@ -103,6 +159,8 @@ function Contact() {
                   Description
                 </label>
                 <textarea
+                  value={formValues.description}
+                  onChange={handleChange}
                   id="description"
                   name="description"
                   placeholder="Write a description..."

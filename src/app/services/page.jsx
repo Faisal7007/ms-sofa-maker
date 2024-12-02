@@ -129,7 +129,9 @@ function Services() {
         {clients.map((client, index) => (
           <div
             key={index}
-            className="bg-white shadow-sm p-6 rounded-lg flex items-center space-x-4 hover:shadow-md hover:scale-104 transition-transform duration-200"
+        ref={ref}
+
+            className={`bg-white shadow-sm p-6 rounded-lg flex items-center space-x-4 hover:shadow-md hover:scale-104 transition-transform duration-200 ${isVisible?'animate__animated animate__zoomIn':''} `}
           >
             <div className={`${client.bgColor} p-3 rounded-full`}>
               {client.icon}
