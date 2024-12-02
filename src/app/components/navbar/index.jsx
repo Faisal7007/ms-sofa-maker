@@ -73,7 +73,7 @@ function Navbar() {
             className={`w-[8%] ${navColor._logo1} items-center justify-center`}
           >
             <Image
-              src="/logo/logo1.png"
+              src="/logo1.png"
               width={25}
               height={25}
               alt="/logo1"
@@ -86,7 +86,7 @@ function Navbar() {
             className={`w-8% ${navColor._logo2} items-center justify-center`}
           >
             <Image
-              src="/logo/logo2.png"
+              src="/logo2.png"
               width={25}
               height={25}
               alt="logo1"
