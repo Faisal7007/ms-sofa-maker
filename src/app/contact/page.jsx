@@ -73,10 +73,10 @@ function Contact() {
         {/* Address Section */}
         <div className="w-full lg:w-1/2 space-y-6">
           <div className="text-2xl sm:text-3xl font-semibold">Come, meet us!</div>
-          <div className="text-lg font-semibold">Manufactured, Packed & Marketed By</div>
+          <div className="text-lg font-semibold">Manufactured, Packed & Marketed By <span className="text-[40px] font-bold font allison_regular text-color_dark_red1 ">M.S. Sofa Maker</span></div>
           <div className="font-semibold">
             Address:
-            <span className="text-sm font-normal"> 34/80 Rasoolpur Prayagraj</span>
+            <span className="text-sm font-normal"> 140/66A Sayed Bada , Rasoolpur Prayagraj.</span>
           </div>
           <div className="">
             <h2 className="text-xl sm:text-2xl font-bold mb-4">Our Location</h2>
@@ -117,6 +117,7 @@ function Contact() {
                   id="name"
                   name="name"
                   placeholder="Your Name"
+                  required
                   className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#be2a3a]"
                 />
               </div>
@@ -133,6 +134,7 @@ function Contact() {
                   id="email"
                   name="email"
                   placeholder="Your Email"
+                  required
                   className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#be2a3a]"
                 />
               </div>
@@ -149,6 +151,7 @@ function Contact() {
                   id="mobile"
                   name="mobile"
                   placeholder="Your Mobile Number"
+                  required
                   className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#be2a3a]"
                 />
               </div>
@@ -165,10 +168,10 @@ function Contact() {
                   name="description"
                   placeholder="Write a description..."
                   rows="6"
+                  required
                   className="w-full h-40 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#be2a3a]"
                 ></textarea>
               </div>
-
               {/* Submit Button */}
               <button
                 type="submit"

@@ -3,7 +3,7 @@ import Navbar from "./components/navbar";
 import { FirebaseProvider } from "./context/Firebase";
 import "./globals.css";
 import { ReduxProvider1 } from "./redux_services/providers";
-import { Inter, Allison, Poppins, Jost } from "next/font/google";
+import { Inter, Allison, Poppins, Jost,Amiri } from "next/font/google";
 
 
 
@@ -34,6 +34,13 @@ const jost_init = Jost({
   subsets: ["latin"],
   variable: "--font-jost",
 });
+
+const amiri_init = Amiri({
+  subsets: ["latin"],
+  variable: "--font-amiri",
+  weight: ["400"],
+
+});
 export default function RootLayout({ children }) {
   // console.log(children,'Children')
 
@@ -42,9 +49,8 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="favicon1.ico" />
       </head>
-      <body className={`${jost_init.variable} ${allison_init.variable} bg-gray-50`}>
+      <body className={`${jost_init.variable} ${allison_init.variable} ${amiri_init.variable} bg-gray-50`}>
       <UserContextProvider>
-
           <FirebaseProvider>
             <ReduxProvider1>
               {children}
@@ -52,7 +58,6 @@ export default function RootLayout({ children }) {
             </ReduxProvider1>
           </FirebaseProvider>
       </UserContextProvider>
-
       </body>
     </html>
   );
