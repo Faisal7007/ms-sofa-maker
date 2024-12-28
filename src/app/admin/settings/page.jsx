@@ -10,7 +10,7 @@ const Settings = () => {
   };
 
   return (
-    <div className=' media-max-450px:pl-8'>
+    <div className='media-max-450px:pl-8'>
       <h1>Settings Page</h1>
       <button onClick={handleNavigate}>Go to Admin Dashboard</button>
     </div>

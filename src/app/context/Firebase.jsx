@@ -44,9 +44,7 @@ const firebaseConfig = {
   appId: "1:620291116962:web:01a31c6dfdb114b10f6cfb",
   databaseURL: "https://red-parts-2001-default-rtdb.firebaseio.com",
 };
-
 let firebaseApp, auth, firestore, database, storage;
-
 // Initialize Firebase only once
 if (typeof window !== "undefined" && !firebaseApp) {
   firebaseApp = initializeApp(firebaseConfig);
@@ -61,7 +59,6 @@ const loginFail = () => toast("Invalid email or password");
 const addToast=()=>toast("Added Successfully")
 const deleteToast=()=>toast("Deleted Successfully")
 const updateToast=()=>toast("Updated Successfully")
-
 
 export const FirebaseProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
@@ -111,13 +108,48 @@ export const FirebaseProvider = ({ children }) => {
         imageUrls,
       });
       addToast()
-      
     } 
     
     catch (error) {
       // console.error("Error adding product:", error);
     }
   };
+
+
+
+   const addTestimonial = async (name, review, image, rating) => {
+    try {
+      let imageUrl = null;
+  
+      // Upload image to Firebase Storage if provided
+      if (image) {
+        const storageReference = storageRef(storage, `testimonials/${Date.now()}-${image.name}`);
+        await uploadBytes(storageReference, image);
+        imageUrl = await getDownloadURL(storageReference);
+      }
+  
+      // Add testimonial data to Firestore
+      const testimonialData = {
+        name,
+        review,
+        rating,
+        imageUrl, // Use the uploaded image URL
+        createdAt: new Date().toISOString(), // Add timestamp
+      };
+  
+      await addDoc(collection(firestore, "testimonials"), testimonialData);
+  
+      return { success: true, message: "Testimonial added successfully." };
+    } catch (error) {
+      // console.error("Error adding testimonial:", error);
+      return { success: false, message: "Failed to add testimonial." };
+    }
+  };
+
+
+
+  const getAllTestimonials = () => getDocs(collection(firestore, "testimonials"));
+
 
   const getAllProducts = () => getDocs(collection(firestore, "products"));
 
@@ -253,6 +285,8 @@ export const FirebaseProvider = ({ children }) => {
         getProductById,
         deleteProductById,
         updateProductById,
+        addTestimonial,
+        getAllTestimonials,
         isLoggedIn,
       }}
     >

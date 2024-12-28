@@ -140,3 +140,16 @@ h6 {
   
 }
 
+
+/* Custom CSS for Swiper arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #070605; /* Blue-500 */
+  transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #050405; /* Blue-700 */
+}
+

@@ -19,7 +19,7 @@ const {idx} = useContext(UserContext)
 console.log(idx,"IDx")
 
   
-  const adminRoutes = ["/admin", "/admin/settings", "/admin/add-product","/admin/products-list","/admin/edit-product",`/admin/edit-product/${idx}`];
+  const adminRoutes = ["/admin", "/admin/settings", "/admin/add-product","/admin/products-list","/admin/edit-product","/admin/add-testimonies",`/admin/edit-product/${idx}`];
   // console.log(pathname,'Path Name')
 
   return !adminRoutes.includes(pathname) ? <WhatsAppChat/> : null;

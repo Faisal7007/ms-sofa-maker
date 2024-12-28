@@ -76,7 +76,7 @@ function Contact() {
           <div className="text-lg font-semibold">Manufactured, Packed & Marketed By <span className="text-[40px] font-bold font allison_regular text-color_dark_red1 ">M.S. Sofa Maker</span></div>
           <div className="font-semibold">
             Address:
-            <span className="text-sm font-normal"> 140/66A Sayed Bada , Rasoolpur Prayagraj.</span>
+            <span className="text-sm font-normal">140/66A Sayed Bada , Rasoolpur Prayagraj.</span>
           </div>
           <div className="">
             <h2 className="text-xl sm:text-2xl font-bold mb-4">Our Location</h2>

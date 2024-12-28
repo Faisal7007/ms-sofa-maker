@@ -6,9 +6,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-function AddProduct({ onAddProduct }) {
-
+function AddProduct({ onAddProduct }){
     const firebase = useFirebase()
     // console.log(firebase,'Fire')
   // Form state for each field in the product
@@ -23,10 +21,8 @@ function AddProduct({ onAddProduct }) {
   const [features, setFeatures] = useState("");
   const [imageFileOne, setImageFileOne] = useState(null);
   const [imagePreviewOne, setImagePreviewOne] = useState(null);
-
   const [imageFileTwo, setImageFileTwo] = useState(null);
   const [imagePreviewTwo, setImagePreviewTwo] = useState(null);
-
   const [imageFileThree, setImageFileThree] = useState(null);
   const [imagePreviewThree, setImagePreviewThree] = useState(null);
   const successAdd = () => toast("Added Successfully");

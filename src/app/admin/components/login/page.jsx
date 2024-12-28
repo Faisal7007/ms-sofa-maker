@@ -55,7 +55,7 @@ const loginFail = () => toast("Wrong email or password");
     </div>
     {/* <ToastContainer /> */}
     <div className='p-8  '>
-    <RiArrowGoBackFill onClick={()=>{router.push("/home")}} className='absolute top-10 size-5 cursor-pointer '/>
+    <RiArrowGoBackFill onClick={()=>{router.push("/")}} className='absolute top-10 size-5 cursor-pointer '/>
     <h2 className="text-2xl font-bold font josh_regular text-center mb-6"> Admin Log In</h2>
     <form onSubmit={handleLogin}>
       <div className="mb-4">

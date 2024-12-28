@@ -8,14 +8,14 @@ import { useFirebase } from '@/app/context/Firebase';
 import { useRouter } from 'next/navigation';
 import { Tooltip } from 'react-tooltip'
 import { CiLogout } from "react-icons/ci";
+import { MdAddToQueue } from "react-icons/md";
+
 import { useState } from 'react';
 import LogoutModal from '../logout-modal/LogoutModal';
 
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const firebase = useFirebase()
-
   const handleLogout = () => {
     // firebase.logOut()
     setIsModalOpen(true)
@@ -72,6 +72,13 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
             <Link href="/admin/products-list" className="hover:bg-gray-700 p-2 rounded flex items-center gap-2">
               <MdOutlineFormatListBulleted className="text-xl" />
               <span>Products List</span>
+            </Link>
+          </li>
+
+          <li onClick={()=>{setIsSidebarOpen(!isSidebarOpen)}}>
+            <Link href="/admin/add-testimonies" className="hover:bg-gray-700 p-2 rounded flex items-center gap-2">
+              <MdAddToQueue className="text-xl" />
+              <span>Add Testimony</span>
             </Link>
           </li>
 

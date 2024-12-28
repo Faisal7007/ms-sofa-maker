@@ -15,8 +15,8 @@ function HomeProducts() {
     firebase.getAllProducts().then((product) => {
       
       const sortedBlogs = product.docs
-        .map((doc) => ({ id: doc.id, ...doc.data() })) // Create an array of blog data with IDs
-        .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort in descending order by date
+        .map((doc) => ({ id: doc.id, ...doc.data() })) 
+        .sort((a, b) => new Date(b.date) - new Date(a.date)); 
 
         // setProducts(sortedBlogs);
         const shuffled = sortedBlogs.sort(() => 0.5 - Math.random());
@@ -34,7 +34,7 @@ function HomeProducts() {
   sm:grid-cols-3 
   sm:mt-28
   lg:grid-cols-4 
-  lg:mt-28
+  lg:mt-12
   gap-4 ">
   {
     products&&products.map((sofa,id)=>{
