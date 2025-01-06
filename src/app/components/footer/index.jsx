@@ -74,7 +74,7 @@ const Footer = () => {
         <p className="text-sm text-gray-500">
           &copy; {new Date().getFullYear()} MS Sofa Maker. All rights reserved.
         </p>
-        <p className="text-sm text-gray-500 mt-2">
+        {/* <p className="text-sm text-gray-500 mt-2">
           Developed by{' '}
           <a
             href="https://yourcompany.com"
@@ -82,7 +82,7 @@ const Footer = () => {
           >
             The Duo Tech
           </a>
-        </p>
+        </p> */}
       </div>
     </footer>
   );
